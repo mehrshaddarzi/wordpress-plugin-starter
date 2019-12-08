@@ -1,0 +1,42 @@
+/* Color Style */
+.wp_plugin .text-danger {
+    color: #DC3545;
+}
+
+.wp_plugin .text-primary {
+    color: #007BFF;
+}
+
+.wp_plugin .text-success {
+    color: #28A745;
+}
+
+.wp_plugin .text-warning {
+    color: #c1950f;
+}
+
+.wp_plugin .text-muted {
+    color: #6d6d6d;
+}
+
+/* Dashicon logo */
+.wp_plugin span.dashicons-randomize {
+    font-size: 25px;
+    margin-right: 5px;
+    vertical-align: -4px;
+}
+
+/* add cursor */
+.wp_plugin .cursor-pointer {
+    cursor: pointer;
+}
+
+/* Top Content wp list table */
+.wlt-top-content {
+    width: 95.5%;
+    min-height: 150px;
+    margin: 25px 10px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+}
