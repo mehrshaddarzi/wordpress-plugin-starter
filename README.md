@@ -5,5 +5,5 @@
 ````
 1 . Replace folder and base php file name
 2 . Replace WP_PLUGIN To new Class name
-3 . Replace wp-plugin to new name for custom css
+3 . Replace wp-plugin to new name
 ````
