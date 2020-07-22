@@ -46,16 +46,6 @@ class WP_PLUGIN {
 	public static $use_i18n = true;
 
 	/**
-	 * Plugin Option Store
-	 * if Plugin Used Option API set list of option key to store this variable.
-	 *
-	 * @see \WP_PLUGIN\admin\Settings
-	 * @var array
-	 * @status Optional
-	 */
-	public static $option = array( 'wp_plugin_email_opt', 'WP_PLUGIN_opt' );
-
-	/**
 	 * List Of Class
 	 * @var array
 	 */
@@ -172,20 +162,6 @@ class WP_PLUGIN {
 		 * Set Plugin Path
 		 */
 		self::$plugin_path = plugin_dir_path( __FILE__ );
-
-		/*
-		 * Set Plugin Option
-		 */
-		if ( is_array( self::$option ) and count( self::$option ) > 0 ) {
-			$option = array();
-			foreach ( self::$option as $opt ) {
-				$option_value = get_option( $opt );
-				if ( isset( $option_value ) and ! empty( $option_value ) ) {
-					$option[ $opt ] = $option_value;
-				}
-			}
-			self::$option = $option;
-		}
 	}
 
 	/**
