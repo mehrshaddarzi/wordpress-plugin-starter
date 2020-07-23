@@ -50,7 +50,7 @@ class WP_PLUGIN {
 	 * @var array
 	 */
 	public static $providers = array(
-		'admin\Settings',
+		//'admin\Settings', [ We Dont again new Object Because Use in admin_menu_page instance ]
 		'admin\Admin',
 		'Front',
 		'Ajax',
