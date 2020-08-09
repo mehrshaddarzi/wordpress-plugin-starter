@@ -6,7 +6,7 @@ class uninstall {
 	/*
 	 * uninstall Plugin Method
 	 */
-	public static function run_install() {
+	public static function run_uninstall() {
 
 	}
 
