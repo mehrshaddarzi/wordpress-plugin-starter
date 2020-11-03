@@ -1,6 +1,7 @@
 <?php
 
 namespace WP_PLUGIN\core;
+
 class Utility
 {
 
@@ -36,18 +37,18 @@ class Utility
         }
 
         //Email from
-        $from_name  = $opt['from_name'];
+        $from_name = $opt['from_name'];
         $from_email = $opt['from_email'];
 
         //Template Arg
         $template_arg = array(
-            'title'       => $subject,
-            'logo'        => $opt['email_logo'],
-            'content'     => $content,
-            'site_url'    => home_url(),
-            'site_title'  => get_bloginfo('name'),
+            'title' => $subject,
+            'logo' => $opt['email_logo'],
+            'content' => $content,
+            'site_url' => home_url(),
+            'site_title' => get_bloginfo('name'),
             'footer_text' => $opt['email_footer'],
-            'is_rtl'      => (is_rtl() ? true : false)
+            'is_rtl' => (is_rtl() ? true : false)
         );
 
         //Send Email
@@ -76,12 +77,12 @@ class Utility
 
         // Prepare Params
         $default = array(
-            'post_type'      => 'post',
-            'post_status'    => 'publish',
+            'post_type' => 'post',
+            'post_status' => 'publish',
             'posts_per_page' => '-1',
-            'order'          => 'ASC',
-            'fields'         => 'ids',
-            'cache_results'  => false,
+            'order' => 'ASC',
+            'fields' => 'ids',
+            'cache_results' => false,
             'no_found_rows' => true, //@see https://10up.github.io/Engineering-Best-Practices/php/#performance
             'update_post_meta_cache' => false,
             'update_post_term_cache' => false,
@@ -123,7 +124,7 @@ class Utility
             $query .= " AND `post_type` = '$post_type'";
         }
 
-        return ((int) $wpdb->get_var($query) > 0 ? true : false);
+        return ((int)$wpdb->get_var($query) > 0 ? true : false);
     }
 
     // Create function for filter WordPress WP_query
@@ -146,11 +147,11 @@ class Utility
 
         // Create new request get list posts
         $default = array(
-            'post_type'      => 'post',
-            'post_status'    => 'publish',
+            'post_type' => 'post',
+            'post_status' => 'publish',
             'posts_per_page' => -1,
             'fields' => 'ids',
-            'cache_results'  => false,
+            'cache_results' => false,
             'no_found_rows' => true,
             'update_post_meta_cache' => false,
             'update_post_term_cache' => false,
@@ -184,14 +185,14 @@ class Utility
     {
         $default = array(
             'parent' => 0, // Count Only Parent 0
-            'status'         => 'approve',
-            'type'           => 'comment',
-            'post_id'        => 0,
-            'number'         => false,
-            'order'          => 'DESC',
-            'orderby'        => 'comment_ID',
+            'status' => 'approve',
+            'type' => 'comment',
+            'post_id' => 0,
+            'number' => false,
+            'order' => 'DESC',
+            'orderby' => 'comment_ID',
             'hierarchical' => false, //@see https://wordpress.stackexchange.com/questions/265014/wp-comment-query-with-5-top-level-comments-per-page
-            'count'          => true,
+            'count' => true,
             'update_comment_meta_cache' => false,
             'update_comment_post_cache' => false,
         );
@@ -203,13 +204,13 @@ class Utility
     }
 
     /**
-     * is_edit_page 
+     * is_edit_page
      * function to check if the current page is a post edit page
-     * 
-     * @author Ohad Raz <admin@bainternet.info>
-     * 
-     * @param  string  $new_edit new|edit
+     *
+     * @param string $new_edit new|edit
      * @return boolean
+     * @author Ohad Raz <admin@bainternet.info>
+     *
      * @example global $typenow; (is_edit_page('new') and $typenow =="POST_TYPE")
      */
     public static function is_edit_page($new_edit = null)
@@ -252,6 +253,112 @@ class Utility
         } else {
             return $text;
         }
+    }
+
+    /*------------------------------------------------------------
+     - WP User API
+    ------------------------------------------------------------/
+
+    /**
+     * Get User Name
+     *
+     * @param bool $user_id
+     * @return string
+     */
+    public static function get_user_full_name($user_id = false)
+    {
+        $user_info = get_userdata($user_id);
+
+        //check display name
+        if ($user_info->display_name != "") {
+            return $user_info->display_name;
+        }
+
+        //Check First and Last name
+        if ($user_info->first_name != "") {
+            return $user_info->first_name . " " . $user_info->last_name;
+        }
+
+        //return Username
+        return $user_info->user_login;
+    }
+
+    /**
+     * Get User Data
+     *
+     * @param bool $user_id
+     * @return array
+     */
+    public static function getUser($user_id = false)
+    {
+
+        # Get User ID
+        $user_id = $user_id ? $user_id : get_current_user_id();
+
+        # Get User Data
+        $user_data = get_userdata($user_id);
+        $user_info = get_object_vars($user_data->data);
+
+        # Get User roles
+        $user_info['role'] = $user_data->roles;
+
+        # Get User Caps
+        $user_info['cap'] = $user_data->caps;
+
+        # Get User Meta
+        $user_info['meta'] = array_map(function ($a) {
+            return $a[0];
+        }, get_user_meta($user_id));
+
+        return $user_info;
+    }
+
+    /**
+     * Check User Exist By id
+     *
+     * @param $user
+     * @return bool
+     * We Don`t Use get_userdata or get_user_by function, because We need only count nor UserData object.
+     */
+    public static function userExist($user)
+    {
+        global $wpdb;
+        $count = $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM $wpdb->users WHERE ID = %d", $user));
+        if ($count == 1) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Get Users
+     * @see https://developer.wordpress.org/reference/classes/wp_user_query/
+     * @see https://generatewp.com/wp_user_query/
+     *
+     * @param array $arg
+     * @return mixed
+     */
+    public static function getUsersID($arg = array())
+    {
+
+        $list = array();
+        $default = array(
+            'fields' => array('id'),
+            'orderby' => 'id',
+            'order' => 'ASC',
+            'count_total' => false
+        );
+        $args = wp_parse_args($arg, $default);
+
+        $user_query = new \WP_User_Query($args);
+        //[Get Request SQL]
+        //echo $user_query->request; 
+        foreach ($user_query->get_results() as $user) {
+            $list[] = $user->id;
+        }
+
+        return $list;
     }
 
     /*------------------------------------------------------------
