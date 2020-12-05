@@ -1,11 +1,15 @@
 <?php
 namespace WP_PLUGIN;
 
-/**
- * Class Helper Used in Custom Helper Method For This Plugin
- */
-class Helper {
-  
+
+class Helper
+{
+
+    public function __construct()
+    {
+        
+    }
+
     public static function readJson($path)
     {
         if (!file_exists($path)) {
@@ -21,3 +25,5 @@ class Helper {
     }
 
 }
+
+new Helper();
