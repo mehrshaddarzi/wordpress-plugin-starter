@@ -60,16 +60,16 @@ class Settings {
 		$sections = array(
 			array(
 				'id'    => 'wp_plugin_email_opt',
-				'desc'  => __( 'Basic email settings', 'wp-reviews-insurance' ),
-				'title' => __( 'Email', 'wp-reviews-insurance' )
+				'desc'  => __( 'Basic email settings', 'wp-plugin' ),
+				'title' => __( 'Email', 'wp-plugin' )
 			),
 			array(
 				'id'    => 'WP_PLUGIN_opt',
-				'title' => __( 'General', 'wp-reviews-insurance' )
+				'title' => __( 'General', 'wp-plugin' )
 			),
 			array(
 				'id'    => 'wp_plugin_help',
-				'title' => __( 'Help', 'wp-reviews-insurance' ),
+				'title' => __( 'Help', 'wp-plugin' ),
 				'save'  => false
 			),
 		);
@@ -78,32 +78,32 @@ class Settings {
 			'wp_plugin_email_opt'     => array(
 				array(
 					'name'    => 'from_email',
-					'label'   => __( 'From Email', 'wp-reviews-insurance' ),
+					'label'   => __( 'From Email', 'wp-plugin' ),
 					'type'    => 'text',
 					'default' => get_option( 'admin_email' )
 				),
 				array(
 					'name'    => 'from_name',
-					'label'   => __( 'From Name', 'wp-reviews-insurance' ),
+					'label'   => __( 'From Name', 'wp-plugin' ),
 					'type'    => 'text',
 					'default' => get_option( 'blogname' )
 				),
 				array(
 					'name'         => 'email_logo',
-					'label'        => __( 'Email Logo', 'wp-reviews-insurance' ),
+					'label'        => __( 'Email Logo', 'wp-plugin' ),
 					'type'         => 'file',
 					'button_label' => 'choose logo image'
 				),
 				array(
 					'name'    => 'email_body',
-					'label'   => __( 'Email Body', 'wp-reviews-insurance' ),
+					'label'   => __( 'Email Body', 'wp-plugin' ),
 					'type'    => 'wysiwyg',
 					'default' => '<p>Hi, [fullname] </p> For Accept Your Reviews Please Click Bottom Link : <p> [link]</p>',
 					'desc'    => 'Use This Shortcode :<br /> [fullname] : User Name <br /> [link] : Accept email link'
 				),
 				array(
 					'name'    => 'email_footer',
-					'label'   => __( 'Email Footer Text', 'wp-reviews-insurance' ),
+					'label'   => __( 'Email Footer Text', 'wp-plugin' ),
 					'type'    => 'wysiwyg',
 					'default' => 'All rights reserved',
 				)
@@ -111,7 +111,7 @@ class Settings {
 			'WP_PLUGIN_opt' => array(
 				array(
 					'name'    => 'is_auth_ip',
-					'label'   => __( 'IP Validation', 'wp-reviews-insurance' ),
+					'label'   => __( 'IP Validation', 'wp-plugin' ),
 					'type'    => 'select',
 					'desc'    => 'Each user can only have one vote',
 					'options' => array(
@@ -121,7 +121,7 @@ class Settings {
 				),
 				array(
 					'name'    => 'email_auth',
-					'label'   => __( 'Confirmation email', 'wp-reviews-insurance' ),
+					'label'   => __( 'Confirmation email', 'wp-plugin' ),
 					'type'    => 'select',
 					'desc'    => 'The user must click confirmation email',
 					'options' => array(
@@ -131,32 +131,32 @@ class Settings {
 				),
 				array(
 					'name'    => 'star_color',
-					'label'   => __( 'Star Rating color', 'wp-reviews-insurance' ),
+					'label'   => __( 'Star Rating color', 'wp-plugin' ),
 					'type'    => 'color',
 					'default' => '#f2b01e'
 				),
 				array(
 					'name'    => 'thanks_text',
-					'label'   => __( 'Thanks you Text', 'wp-reviews-insurance' ),
+					'label'   => __( 'Thanks you Text', 'wp-plugin' ),
 					'type'    => 'wysiwyg',
 					'default' => 'Thanks you for this vote.'
 				),
 				array(
 					'name'    => 'error_ip',
-					'label'   => __( 'Duplicate ip error', 'wp-reviews-insurance' ),
+					'label'   => __( 'Duplicate ip error', 'wp-plugin' ),
 					'type'    => 'textarea',
 					'default' => 'Each user can only have one vote'
 				),
 				array(
 					'name'    => 'email_subject',
-					'label'   => __( 'Email subject for Confirm', 'wp-reviews-insurance' ),
+					'label'   => __( 'Email subject for Confirm', 'wp-plugin' ),
 					'type'    => 'text',
 					'default' => 'confirm your reviews',
 					'desc'    => 'Use This Shortcode :</br> [fullname] : User Name<br /> [sitename] : Site Name',
 				),
 				array(
 					'name'    => 'email_thanks_text',
-					'label'   => __( 'Thanks Confirm Text', 'wp-reviews-insurance' ),
+					'label'   => __( 'Thanks Confirm Text', 'wp-plugin' ),
 					'type'    => 'text',
 					'default' => 'Thank You For Your Reviews.',
 				),
