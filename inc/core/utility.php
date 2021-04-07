@@ -396,4 +396,19 @@ class Utility
                 return (!is_admin() || defined('DOING_AJAX')) && !defined('DOING_CRON');
         }
     }
+    
+    
+   /**
+     * Returns true if the request is a non-legacy REST API request.
+     *
+     * @return bool
+     */
+    public static function is_rest_request()
+    {
+        if (empty($_SERVER['REQUEST_URI'])) {
+            return false;
+        }
+        $rest_prefix = trailingslashit(rest_get_url_prefix());
+        return (false !== strpos($_SERVER['REQUEST_URI'], $rest_prefix));
+    }
 }
