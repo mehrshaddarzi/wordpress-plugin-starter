@@ -36,7 +36,7 @@ class Front {
 		$custom_css = ".test {color: " . WP_PLUGIN::$option['star_color'] . ";}";
 		wp_add_inline_style( self::$asset_name, $custom_css );
 
-		wp_enqueue_script( self::$asset_name, WP_PLUGIN::$plugin_url . '/asset/script.js', array( 'jquery' ), WP_PLUGIN::$plugin_version, false );
+		wp_enqueue_script( self::$asset_name, WP_PLUGIN::$plugin_url . '/asset/public/script.js', array( 'jquery' ), WP_PLUGIN::$plugin_version, false );
 		wp_localize_script( self::$asset_name, 'wp_reviews_js', array(
 			'ajax'          => home_url() . '/?WP_PLUGIN_check_notification=yes&time=' . current_time( 'timestamp' ),
 			'is_login_user' => ( is_user_logged_in() ? 1 : 0 )
