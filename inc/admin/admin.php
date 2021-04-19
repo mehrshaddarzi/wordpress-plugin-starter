@@ -63,8 +63,14 @@ class Admin {
 		//List Allow This Script
 		if ( $pagenow == "admin.php" ) {
 
-			wp_enqueue_style( 'wp-plugin', WP_PLUGIN::$plugin_url . '/asset/admin/css/style.css', array(), WP_PLUGIN::$plugin_version, 'all' );
-			wp_enqueue_script( 'wp-plugin', WP_PLUGIN::$plugin_url . '/asset/admin/js/script.js', array( 'jquery' ), WP_PLUGIN::$plugin_version, false );
+			// Get Plugin Version
+			$plugin_version = WP_MSTRCLUB::$plugin_version;
+			if (defined('SCRIPT_DEBUG') and SCRIPT_DEBUG === true) {
+			    $plugin_version = time();
+			}
+			
+			wp_enqueue_style( 'wp-plugin', WP_PLUGIN::$plugin_url . '/asset/admin/css/style.css', array(), $plugin_version, 'all' );
+			wp_enqueue_script( 'wp-plugin', WP_PLUGIN::$plugin_url . '/asset/admin/js/script.js', array( 'jquery' ), $plugin_version, false );
 
 		}
 
