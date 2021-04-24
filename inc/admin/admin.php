@@ -64,7 +64,7 @@ class Admin {
 		if ( $pagenow == "admin.php" ) {
 
 			// Get Plugin Version
-			$plugin_version = WP_MSTRCLUB::$plugin_version;
+			$plugin_version = WP_PLUGIN::$plugin_version;
 			if (defined('SCRIPT_DEBUG') and SCRIPT_DEBUG === true) {
 			    $plugin_version = time();
 			}
