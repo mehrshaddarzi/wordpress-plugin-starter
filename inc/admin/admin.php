@@ -71,7 +71,9 @@ class Admin {
 			
 			wp_enqueue_style( 'wp-plugin', WP_PLUGIN::$plugin_url . '/asset/admin/css/style.css', array(), $plugin_version, 'all' );
 			wp_enqueue_script( 'wp-plugin', WP_PLUGIN::$plugin_url . '/asset/admin/js/script.js', array( 'jquery' ), $plugin_version, false );
-
+			wp_localize_script('wp-plugin', 'wp_plugin', array(
+			    'ajax' => admin_url('admin-ajax.php'),
+			));
 		}
 
 	}
