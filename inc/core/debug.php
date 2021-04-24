@@ -110,7 +110,8 @@ class Debug {
 	public function init_rest_api() {
 		register_rest_route( 'method', '/' . self::$global_request . '/', array(
 			'methods'  => 'GET',
-			'callback' => array( $this, 'rest_api_request' )
+			'callback' => array( $this, 'rest_api_request' ),
+			'permission_callback' => '__return_true'
 		) );
 	}
 
