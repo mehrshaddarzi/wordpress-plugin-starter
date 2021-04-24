@@ -17,7 +17,7 @@ class Admin {
 		/*
 		 * Set Page slug Admin
 		 */
-		self::$admin_page_slug = 'wp-admin';
+		self::$admin_page_slug = 'wp-plugin';
 		/*
 		 * Setup Admin Menu
 		 */
