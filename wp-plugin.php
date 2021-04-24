@@ -179,7 +179,6 @@ class WP_PLUGIN {
 		include_once dirname( __FILE__ ) . '/inc/front.php';
 		include_once dirname( __FILE__ ) . '/inc/admin/admin.php';
 		include_once dirname( __FILE__ ) . '/inc/admin/settings.php';
-		include_once dirname( __FILE__ ) . '/inc/core/debug.php';
 		include_once dirname( __FILE__ ) . '/inc/core/settingapi.php';
 		include_once dirname( __FILE__ ) . '/inc/core/template.php';
 		include_once dirname( __FILE__ ) . '/inc/core/utility.php';
@@ -222,6 +221,7 @@ class WP_PLUGIN {
 
 		//Check $ENVIRONMENT Mode
 		if ( self::$ENVIRONMENT == "development" ) {
+			include_once dirname( __FILE__ ) . '/inc/core/debug.php';
 			new \WP_PLUGIN\core\debug();
 		}
 
