@@ -38,7 +38,7 @@ class Front {
 		wp_enqueue_script( 'jquery-raty', WP_PLUGIN::$plugin_url . '/asset/jquery-raty/jquery.raty.js', array( 'jquery' ), WP_PLUGIN::$plugin_version, false );
 
 		//Native Plugin
-		wp_enqueue_style( self::$asset_name, WP_PLUGIN::$plugin_url . '/asset/style.css', array(), WP_PLUGIN::$plugin_version, 'all' );
+		wp_enqueue_style( self::$asset_name, WP_PLUGIN::$plugin_url . '/asset/public/style.css', array(), WP_PLUGIN::$plugin_version, 'all' );
 		$custom_css = ".test {color: " . WP_PLUGIN::$option['star_color'] . ";}";
 		wp_add_inline_style( self::$asset_name, $custom_css );
 
