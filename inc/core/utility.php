@@ -20,16 +20,10 @@ class Utility
     public static function send_mail($to, $subject, $content)
     {
         //Email Template
-        $email_template = wp_normalize_path(\WP_APPLE_APPS::$plugin_path . '/templates/email.php');
-        if (trim(\WP_APPLE_APPS::$Template_Engine) != "") {
-            $template = wp_normalize_path(path_join(get_template_directory(), '/wp-apple-apps/email.php'));
-            if (file_exists($template)) {
-                $email_template = $template;
-            }
-        }
-
+        $email_template = wp_normalize_path(\WP_PLUGIN::$plugin_path . '/templates/email.php');
+ 
         //Get option Send Mail
-        $opt = get_option('wp_apple_apps_email_opt');
+        $opt = get_option('wp_plugin_email_opt');
 
         //Set To Admin
         if ($to == "admin") {
