@@ -80,6 +80,7 @@ class Utility
             'no_found_rows' => true, //@see https://10up.github.io/Engineering-Best-Practices/php/#performance
             'update_post_meta_cache' => false,
             'update_post_term_cache' => false,
+            'suppress_filters' => true
         );
         $args = wp_parse_args($arg, $default);
 
