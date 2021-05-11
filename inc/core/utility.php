@@ -240,7 +240,7 @@ class Utility
     {
         $text = '
         <div class="notice notice-' . $model . '' . ($close_button === true ? " is-dismissible" : "") . '">
-           <div style="' . $style_extra . ' inline">' . $text . '</div>
+           <div style="' . $style_extra . '">' . $text . '</div>
         </div>
         ';
         if ($echo) {
