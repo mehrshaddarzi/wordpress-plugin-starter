@@ -40,3 +40,9 @@
     border-radius: 10px;
     padding: 20px;
 }
+
+/* Ltr Input Settings */
+tr.wp_plugin_input_ltr input {
+    direction: ltr;
+    text-align: left;
+}
