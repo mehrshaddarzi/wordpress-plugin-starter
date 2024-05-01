@@ -80,7 +80,8 @@ class Settings {
 					'name'    => 'from_email',
 					'label'   => __( 'From Email', 'wp-plugin' ),
 					'type'    => 'text',
-					'default' => get_option( 'admin_email' )
+					'default' => get_option( 'admin_email' ),
+					'class' => 'wp_plugin_input_ltr'
 				),
 				array(
 					'name'    => 'from_name',
