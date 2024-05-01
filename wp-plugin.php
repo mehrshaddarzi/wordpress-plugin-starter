@@ -35,7 +35,7 @@ class WP_PLUGIN {
 	 *
 	 * @var string
 	 */
-	private $min_php = '5.4.0';
+	private $min_php = '7.0.0';
 
 	/**
 	 * Use plugin's translated strings
@@ -101,7 +101,7 @@ class WP_PLUGIN {
 	}
 
 	/**
-	 * WP_PLUGIN constructor.
+	 * constructor.
 	 */
 	public function __construct() {
 
@@ -124,7 +124,7 @@ class WP_PLUGIN {
 		$this->includes();
 
 		/*
-		 * init Wordpress hook
+		 * init WordPress hook
 		 */
 		$this->init_hooks();
 
