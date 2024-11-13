@@ -30,7 +30,7 @@ class i18n {
 		/*
 		 * Load Plugin Text Domain
 		 */
-		add_action( 'init', array( $this, 'i18n' ) );
+		add_action( 'after_setup_theme', array( $this, 'i18n' ) );
 	}
 
 	/**
