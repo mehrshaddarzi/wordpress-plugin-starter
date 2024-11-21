@@ -145,7 +145,7 @@ class WP_PLUGIN {
 		if ( ! function_exists( 'get_plugin_data' ) ) {
 			require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 		}
-		$plugin_data = get_plugin_data( __FILE__ );
+		$plugin_data = get_plugin_data( __FILE__, true, false);
 
 		/*
 		 * Set Plugin Version
