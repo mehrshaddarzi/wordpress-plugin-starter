@@ -180,6 +180,7 @@ class WP_PLUGIN {
         require_once dirname( __FILE__ ) . '/inc/custom-table/Page.php';
 
 		// Plugin
+		require_once dirname( __FILE__ ) . '/inc/Option.php';
 		require_once dirname( __FILE__ ) . '/inc/admin/admin.php';
 		require_once dirname( __FILE__ ) . '/inc/admin/settings.php';
 		require_once dirname( __FILE__ ) . '/inc/helper.php';
