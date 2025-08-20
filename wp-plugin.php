@@ -176,6 +176,7 @@ class WP_PLUGIN {
 		require_once dirname( __FILE__ ) . '/inc/core/template.php';
 		require_once dirname( __FILE__ ) . '/inc/core/utility.php';
 		require_once dirname( __FILE__ ) . '/inc/core/wp_mail.php';
+		require_once dirname( __FILE__ ) . '/inc/FlashMessage.php';
 		require_once dirname( __FILE__ ) . '/inc/custom-table/Base.php';
         require_once dirname( __FILE__ ) . '/inc/custom-table/Page.php';
 
