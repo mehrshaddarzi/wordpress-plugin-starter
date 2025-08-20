@@ -168,22 +168,22 @@ class WP_PLUGIN {
 	 */
 	public function includes() {
 
-		/*
-		 * autoload plugin files
-		 */
-		include_once dirname( __FILE__ ) . '/inc/config/i18n.php';
-		include_once dirname( __FILE__ ) . '/inc/config/install.php';
-		include_once dirname( __FILE__ ) . '/inc/config/uninstall.php';
-		include_once dirname( __FILE__ ) . '/inc/helper.php';
-		include_once dirname( __FILE__ ) . '/inc/ajax.php';
-		include_once dirname( __FILE__ ) . '/inc/front.php';
-		include_once dirname( __FILE__ ) . '/inc/admin/admin.php';
-		include_once dirname( __FILE__ ) . '/inc/admin/settings.php';
-		include_once dirname( __FILE__ ) . '/inc/core/settingapi.php';
-		include_once dirname( __FILE__ ) . '/inc/core/template.php';
-		include_once dirname( __FILE__ ) . '/inc/core/utility.php';
-		include_once dirname( __FILE__ ) . '/inc/core/wp_mail.php';
+		// Basic
+		require_once dirname( __FILE__ ) . '/inc/config/i18n.php';
+		require_once dirname( __FILE__ ) . '/inc/config/install.php';
+		require_once dirname( __FILE__ ) . '/inc/config/uninstall.php';
+		require_once dirname( __FILE__ ) . '/inc/core/settingapi.php';
+		require_once dirname( __FILE__ ) . '/inc/core/template.php';
+		require_once dirname( __FILE__ ) . '/inc/core/utility.php';
+		require_once dirname( __FILE__ ) . '/inc/core/wp_mail.php';
 
+		// Plugin
+		require_once dirname( __FILE__ ) . '/inc/admin/admin.php';
+		require_once dirname( __FILE__ ) . '/inc/admin/settings.php';
+		require_once dirname( __FILE__ ) . '/inc/helper.php';
+		require_once dirname( __FILE__ ) . '/inc/ajax.php';
+		require_once dirname( __FILE__ ) . '/inc/front.php';
+		
 		/*
 		 * Load List Of classes
 		 */
