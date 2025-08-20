@@ -176,9 +176,14 @@ class WP_PLUGIN {
 		require_once dirname( __FILE__ ) . '/inc/core/template.php';
 		require_once dirname( __FILE__ ) . '/inc/core/utility.php';
 		require_once dirname( __FILE__ ) . '/inc/core/wp_mail.php';
-		require_once dirname( __FILE__ ) . '/inc/FlashMessage.php';
-		require_once dirname( __FILE__ ) . '/inc/custom-table/Base.php';
-        require_once dirname( __FILE__ ) . '/inc/custom-table/Page.php';
+		
+		// Custom Table
+        if (is_admin() and !class_exists('WP_List_Table')) {
+            require_once(ABSPATH . 'wp-admin/includes/class-wp-list-table.php');
+        }
+        require_once dirname(__FILE__) . '/inc/FlashMessage.php';
+        require_once dirname(__FILE__) . '/inc/custom-table/Base.php';
+        require_once dirname(__FILE__) . '/inc/custom-table/Page.php';
 
 		// Plugin
 		require_once dirname( __FILE__ ) . '/inc/Option.php';
